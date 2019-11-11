@@ -31,7 +31,7 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<beans:property name="url"
-			value="jjdbc:mysql://sql12.freemysqlhosting.net:3306/sql12311354?useSSL=false" />
+			value="jdbc:mysql://sql12.freemysqlhosting.net:3306/sql12311354?useSSL=false" />
 		<beans:property name="username" value="sql12311354" />
 		<beans:property name="password" value="JhM8fZ7w7P" />
 	</beans:bean>
