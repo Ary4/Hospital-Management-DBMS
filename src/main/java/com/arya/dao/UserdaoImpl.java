@@ -39,6 +39,9 @@ public class UserdaoImpl implements Userdao{
 		 String sql = "INSERT INTO users(username, password,name,email,phone) VALUES (?,?,?,?,?)";
 		 jdbcTemplate.update(sql,new Object[] {user.getUsername(),user.getPassword(),user.getName(),user.getEmail(),user.getPhone()});
 		 
+		String sql = "INSERT INTO user_roles VALUES (?,'ROLE_USER')";
+		 jdbcTemplate.update(sql,new Object[] {user.getUsername()});
+		
 		 sql = "INSERT INTO patients(pid) VALUES(?)";
 		 jdbcTemplate.update(sql,new Object[] {user.getUsername()});
 		 
@@ -50,6 +53,8 @@ public class UserdaoImpl implements Userdao{
 		 
 //		 sql = "INSERT INTO users_roles(user,role) VALUES(?,?)";
 //		 jdbcTemplate.update(sql,new Object[] {user.getUsername(),"ROLE_DOCTOR"});
+		 String sql = "INSERT INTO user_roles VALUES (?,'ROLE_USER')";
+		 jdbcTemplate.update(sql,new Object[] {user.getUsername()});
 		 sql = "UPDATE users_roles SET role = \"ROLE_DOCTOR\" WHERE user = \"" + user.getUsername() + "\"";
 		 jdbcTemplate.update(sql);
 		 sql="UPDATE doctors SET department='"+d1+"' WHERE doctorid='"+user.getUsername()+"'";
@@ -59,7 +64,8 @@ public class UserdaoImpl implements Userdao{
 	public void saveOrUpdatestaff(User user) {
 		 String sql = "INSERT INTO users(username, password,name,email,phone) VALUES (?,?,?,?,?)";
 		 jdbcTemplate.update(sql,new Object[] {user.getUsername(),user.getPassword(),user.getName(),user.getEmail(),user.getPhone()});
-		 
+		 String sql = "INSERT INTO user_roles VALUES (?,'ROLE_USER')";
+		 jdbcTemplate.update(sql,new Object[] {user.getUsername()});
 //		 sql = "INSERT INTO users_roles(user,role) VALUES(?,?)";
 //		 jdbcTemplate.update(sql,new Object[] {user.getUsername(),"ROLE_DOCTOR"});
 		 sql = "UPDATE users_roles SET role = \"ROLE_STAFF\" WHERE user = \"" + user.getUsername() + "\"";
